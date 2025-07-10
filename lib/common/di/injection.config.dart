@@ -57,9 +57,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i581.DioInterceptor>(
         () => _i581.DioInterceptor(gh<_i206.Storage>()));
     gh.factory<_i361.Dio>(() => networkModule.dio(gh<_i581.DioInterceptor>()));
-    gh.factory<_i209.HomeApi>(() => _i209.HomeApi(gh<_i361.Dio>()));
     gh.factory<_i700.UserApi>(() => _i700.UserApi(gh<_i361.Dio>()));
     gh.factory<_i356.MainApi>(() => _i356.MainApi(gh<_i361.Dio>()));
+    gh.factory<_i209.HomeApi>(() => _i209.HomeApi(gh<_i361.Dio>()));
     gh.factory<_i702.HomeRepo>(() => _i849.HomeRepoImpl(gh<_i209.HomeApi>()));
     gh.factory<_i774.UserRepo>(() => _i824.UserRepoImpl(gh<_i700.UserApi>()));
     gh.factory<_i930.MainRepo>(() => _i380.MainRepoImpl(
