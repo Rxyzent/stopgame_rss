@@ -18,13 +18,17 @@ import 'package:rss_news_app/common/di/network_module.dart' as _i321;
 import 'package:rss_news_app/common/di/storage.dart' as _i206;
 import 'package:rss_news_app/common/widgets/display/display.dart' as _i60;
 import 'package:rss_news_app/common/widgets/display/display_impl.dart' as _i121;
+import 'package:rss_news_app/data/home/home_api.dart' as _i209;
+import 'package:rss_news_app/data/home/home_repo_impl.dart' as _i849;
 import 'package:rss_news_app/data/main/main_api.dart' as _i356;
 import 'package:rss_news_app/data/main/main_repo_impl.dart' as _i380;
 import 'package:rss_news_app/data/user/user_api.dart' as _i700;
 import 'package:rss_news_app/data/user/user_repo_impl.dart' as _i824;
+import 'package:rss_news_app/domain/repo/home_repo.dart' as _i702;
 import 'package:rss_news_app/domain/repo/main_repo.dart' as _i930;
 import 'package:rss_news_app/domain/repo/user_repo.dart' as _i774;
 import 'package:rss_news_app/domain/service/colors/theme_colors.dart' as _i977;
+import 'package:rss_news_app/presentation/home/cubit/home_cubit.dart' as _i387;
 import 'package:rss_news_app/presentation/main/cubit/main_cubit.dart' as _i69;
 import 'package:rss_news_app/presentation/splash/cubit/splash_cubit.dart'
     as _i9;
@@ -53,13 +57,16 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i581.DioInterceptor>(
         () => _i581.DioInterceptor(gh<_i206.Storage>()));
     gh.factory<_i361.Dio>(() => networkModule.dio(gh<_i581.DioInterceptor>()));
+    gh.factory<_i209.HomeApi>(() => _i209.HomeApi(gh<_i361.Dio>()));
     gh.factory<_i700.UserApi>(() => _i700.UserApi(gh<_i361.Dio>()));
     gh.factory<_i356.MainApi>(() => _i356.MainApi(gh<_i361.Dio>()));
+    gh.factory<_i702.HomeRepo>(() => _i849.HomeRepoImpl(gh<_i209.HomeApi>()));
     gh.factory<_i774.UserRepo>(() => _i824.UserRepoImpl(gh<_i700.UserApi>()));
     gh.factory<_i930.MainRepo>(() => _i380.MainRepoImpl(
           gh<_i206.Storage>(),
           gh<_i356.MainApi>(),
         ));
+    gh.factory<_i387.HomeCubit>(() => _i387.HomeCubit(gh<_i702.HomeRepo>()));
     gh.factory<_i69.MainCubit>(() => _i69.MainCubit(gh<_i930.MainRepo>()));
     return this;
   }

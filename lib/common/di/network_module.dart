@@ -12,7 +12,7 @@ abstract class NetworkModule {
 
     dio.options.connectTimeout = const Duration(seconds: 10);
 
-    dio.options.baseUrl = Constants.baseUrl;
+    //dio.options.baseUrl = Constants.baseUrl;
 
     dio.interceptors.add(dioInterceptor);
 
