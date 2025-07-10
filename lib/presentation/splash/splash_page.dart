@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rss_news_app/common/base/base_page.dart';
 import 'package:rss_news_app/common/extensions/text_extensions.dart';
+import 'package:rss_news_app/common/router/app_router.dart';
 import 'package:rss_news_app/common/widgets/common_button.dart';
 import 'package:rss_news_app/domain/service/colors/static_colors.dart';
 import 'package:rss_news_app/presentation/splash/cubit/splash_cubit.dart';
@@ -18,6 +19,7 @@ class SplashPage
     super.listener(context, state);
     switch (state.effect) {
       case SplashEffect.home:
+        context.router.push(const MainRoute());
         break;
       case SplashEffect.none:
         break;

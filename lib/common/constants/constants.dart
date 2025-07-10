@@ -4,7 +4,7 @@ abstract final class ApiConfig {
 }
 
 class Constants {
-  static const baseUrl1 = 'https://demo.rss_news_app.uz/api/v1';
+  static const newUrl = 'https://rss.stopgame.ru/rss_news.xml';
   static const baseUrl = 'https://050.rss_news_app.uz/api/v1';
   static const contactNumber = '+998901234567';
 

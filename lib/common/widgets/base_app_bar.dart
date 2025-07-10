@@ -60,7 +60,6 @@ Widget appBarLeading(BuildContext context) {
         child: Icon(
           Icons.arrow_back_ios_new,
           color: context.colors.text,
-          size: 28,
         ),
       ),
     ),
